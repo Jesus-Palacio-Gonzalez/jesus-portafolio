@@ -2,10 +2,10 @@ import FadeIn from '../components/FadeIn';
 import Magnet from '../components/Magnet';
 import ContactButton from '../components/ContactButton';
 
-// 1. IMPORTAMOS LA IMAGEN DEL RETRATO 
-import portrait from '../assets/jesusface.png'; 
-
 const NAV_LINKS = ['About', 'Services', 'Projects', 'Contact'];
+
+const PORTRAIT_URL =
+  '/assets/jesusface.png';
 
 export default function HeroSection() {
   return (
@@ -38,8 +38,7 @@ export default function HeroSection() {
         className="absolute left-1/2 -translate-x-1/2 z-10 top-1/2 -translate-y-1/2 sm:top-auto sm:translate-y-0 sm:bottom-0 w-[280px] sm:w-[360px] md:w-[440px] lg:w-[520px]"
       >
         <FadeIn delay={0.6} y={30}>
-          {/* 2. USAMOS LA VARIABLE DEL RETRATO AQUÍ */}
-          <img src={portrait} alt="Jesús, 3D creator portrait" className="w-full h-auto" />
+          <img src={PORTRAIT_URL} alt="Jesús, 3D creator portrait" className="w-full h-auto" />
         </FadeIn>
       </Magnet>
 
@@ -49,11 +48,12 @@ export default function HeroSection() {
             className="text-[#D7E2EA] font-light uppercase tracking-wide leading-snug max-w-[160px] sm:max-w-[220px] md:max-w-[260px]"
             style={{ fontSize: 'clamp(0.75rem, 1.4vw, 1.5rem)' }}
           >
-            Para mí, cada proyecto representa una oportunidad para transformar una idea en una herramienta que impulse el crecimiento.
+           Para mí, cada proyecto representa una oportunidad para transformar una idea en una herramienta que impulse el crecimiento.
           </p>
         </FadeIn>
         <FadeIn delay={0.5} y={20}>
           <ContactButton />
+
         </FadeIn>
       </div>
     </section>

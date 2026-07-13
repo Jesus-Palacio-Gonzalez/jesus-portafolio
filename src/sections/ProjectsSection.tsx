@@ -3,11 +3,6 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import FadeIn from '../components/FadeIn';
 import LiveProjectButton from '../components/LiveProjectButton';
 
-// 1. IMPORTAMOS LAS IMÁGENES DIRECTAMENTE DESDE ASSETS
-import diosaInteriorImg from '../assets/diosainterior.png';
-import postechImg from '../assets/postech.png';
-import frankSmartImg from '../assets/franksmart.png';
-
 interface Project {
   number: string;
   category: string;
@@ -20,19 +15,19 @@ const PROJECTS: Project[] = [
     number: '01',
     category: 'Client',
     name: 'Diosa Interior',
-    image: diosaInteriorImg, // 2. USAMOS LA VARIABLE IMPORTADA
+    image: '/assets/diosainterior.png',
   },
   {
     number: '02',
     category: 'Personal',
     name: 'POSTECH',
-    image: postechImg, // 2. USAMOS LA VARIABLE IMPORTADA
+    image: '/assets/postech.png',
   },
   {
     number: '03',
     category: 'Client',
     name: 'FrankSMART',
-    image: frankSmartImg, // 2. USAMOS LA VARIABLE IMPORTADA
+    image: '/assets/franksmart.png',
   },
 ];
 
