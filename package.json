@@ -1,5 +1,5 @@
 {
-  "name": "jack-3d-creator-portfolio",
+  "name": "jesus-portfolio",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -9,19 +9,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "framer-motion": "^12.38.0",
-    "lucide-react": "^0.344.0",
+    "framer-motion": "^12.23.24",
+    "lucide-react": "^0.542.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.1",
-    "autoprefixer": "^10.4.19",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5.5.3",
-    "vite": "^8.1.4"
+    "@types/react": "^18.3.23",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^4.7.0",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.5"
   }
 }
