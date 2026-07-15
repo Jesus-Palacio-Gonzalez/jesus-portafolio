@@ -5,7 +5,7 @@ import AboutSection from './sections/AboutSection';
 import ServicesSection from './sections/ServicesSection';
 import ProjectsSection from './sections/ProjectsSection';
 import PricingSection from './sections/PricingSection';
-import FaqSection from './sections/FaqSection';
+import FAQSection from './sections/FAQSection'; 
 
 
 export default function App() {
