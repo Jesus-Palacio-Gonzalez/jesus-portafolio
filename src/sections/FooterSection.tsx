@@ -2,6 +2,7 @@ import { Heart, Instagram, Facebook, Github, Linkedin, Mail } from 'lucide-react
 import { motion } from 'framer-motion';
 import FadeIn from '../components/FadeIn';
 import ContactButton from '../components/ContactButton';
+import { Link } from 'react-router-dom';
 
 const NAV_LINKS = ['About', 'Services', 'Projects', 'Contact'];
 
@@ -74,26 +75,33 @@ export default function Footer() {
       </FadeIn>
 
       <FadeIn delay={0.4} y={10}>
-        <div
-          className="flex flex-col sm:flex-row items-center justify-between gap-3 mt-14 sm:mt-16 md:mt-20 pt-6 sm:pt-8"
-          style={{ borderTop: '1px solid rgba(215, 226, 234, 0.15)' }}
-        >
-          <span className="text-[#D7E2EA] text-xs sm:text-sm opacity-50 uppercase tracking-wider">
-            © {year} PalacioTECH. All rights reserved.
-          </span>
+  <div
+    className="flex flex-col sm:flex-row items-center justify-between gap-3 mt-14 sm:mt-16 md:mt-20 pt-6 sm:pt-8"
+    style={{ borderTop: '1px solid rgba(215, 226, 234, 0.15)' }}
+  >
+    <span className="text-[#D7E2EA] text-xs sm:text-sm opacity-50 uppercase tracking-wider">
+      © {year} Jack. All rights reserved.
+    </span>
 
-          <span className="flex items-center gap-1.5 text-[#D7E2EA] text-xs sm:text-sm opacity-70 uppercase tracking-wider">
-            Hecho con amor
-            <motion.span
-              animate={{ scale: [1, 1.25, 1] }}
-              transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
-              className="inline-flex"
-            >
-              <Heart size={14} fill="#B600A8" color="#B600A8" />
-            </motion.span>
-          </span>
-        </div>
-      </FadeIn>
+    <Link
+      to="/privacidad"
+      className="text-[#D7E2EA] text-xs sm:text-sm opacity-50 uppercase tracking-wider transition-opacity duration-200 hover:opacity-80"
+    >
+      Política de Privacidad
+    </Link>
+
+    <span className="flex items-center gap-1.5 text-[#D7E2EA] text-xs sm:text-sm opacity-70 uppercase tracking-wider">
+      Hecho con amor
+      <motion.span
+        animate={{ scale: [1, 1.25, 1] }}
+        transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
+        className="inline-flex"
+      >
+        <Heart size={14} fill="#B600A8" color="#B600A8" />
+      </motion.span>
+    </span>
+  </div>
+</FadeIn>
     </footer>
   );
 }
