@@ -17,7 +17,7 @@ export default function App() {
       <ServicesSection />
       <PricingSection />
       <ProjectsSection />
-      <FaqSection />
+      <FAQSection />
       <FooterSection />
     </div>
   );
