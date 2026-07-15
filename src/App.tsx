@@ -6,6 +6,7 @@ import ServicesSection from './sections/ServicesSection';
 import ProjectsSection from './sections/ProjectsSection';
 import PricingSection from './sections/PricingSection';
 import FAQSection from './sections/FAQSection'; 
+import CookieBanner from './components/CookieBanner';
 
 
 export default function App() {
@@ -19,6 +20,7 @@ export default function App() {
       <ProjectsSection />
       <FAQSection />
       <FooterSection />
+      <CookieBanner />
     </div>
   );
 }
