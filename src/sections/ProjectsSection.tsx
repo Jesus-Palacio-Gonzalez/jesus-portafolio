@@ -39,7 +39,7 @@ const PROJECTS: Project[] = [
     description:
       'Landing page de e-commerce para una marca de moda femenina, enfocada en storytelling visual y conversión.',
     techStack: ['React', 'Tailwind CSS', 'Framer Motion'],
-    image: '/assets/diosainterior.png',
+    image: '/assets/diosainterior.gif ',
     link: 'https://example.com/diosa-interior',
   },
   {
@@ -49,7 +49,7 @@ const PROJECTS: Project[] = [
     description:
       'Plataforma web para servicios tecnológicos, con panel de administración y gestión de solicitudes en tiempo real.',
     techStack: ['React', 'TypeScript', 'Node.js', 'PostgreSQL'],
-    image: '/assets/postech.png',
+    image: '/assets/postech.gif',
     link: 'https://example.com/postech',
   },
   {
