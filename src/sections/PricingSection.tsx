@@ -39,7 +39,7 @@ const WHATSAPP_NUMBER = '573001234567';
 const PLANS: PricingPlan[] = [
   {
     name: 'Landing Page',
-    image: './public/assets/landingpage.png',
+    image: '/assets/landingpage.png',
     price: '$800.000',
     period: 'COP',
     description: 'Página de una sola vista, optimizada para conversión y velocidad.',
@@ -62,7 +62,7 @@ const PLANS: PricingPlan[] = [
   },
   {
     name: 'Web App Full-Stack',
-    image: './public/assets/fullstacksystem.png',
+    image: '/assets/fullstacksystem.png',
     price: '$4.800.000',
     period: 'COP',
     description: 'Aplicación web completa con backend, base de datos y autenticación.',
@@ -87,7 +87,7 @@ const PLANS: PricingPlan[] = [
   },
   {
     name: 'E-commerce',
-    image: './public/assets/ecommerce.png',
+    image: '/assets/ecommerce.png',
     price: '$3.400.000',
     period: 'COP',
     description: 'Tienda online lista para vender, con pagos y gestión de inventario.',
@@ -110,7 +110,7 @@ const PLANS: PricingPlan[] = [
   },
   {
     name: 'Consultoría Freelance',
-    image: './public/assets/consultoria.png',
+    image: '/assets/consultoria.png',
     price: '$140.000',
     period: 'hora',
     description: 'Acompañamiento puntual: revisiones de código, arquitectura o dudas técnicas.',
