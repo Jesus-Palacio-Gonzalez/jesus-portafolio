@@ -1,23 +1,49 @@
+// src/pages/PricingSection.tsx
 import { Check } from 'lucide-react';
+import {
+  SiReact,
+  SiTypescript,
+  SiTailwindcss,
+  SiFramer,
+  SiVite,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiPostgresql,
+  SiStripe,
+  SiVercel,
+  SiFigma,
+} from 'react-icons/si';
 import FadeIn from '../components/FadeIn';
-import ContactButton from '../components/ContactButton';
+
+interface TechIcon {
+  name: string;
+  icon: React.ElementType;
+}
 
 interface PricingPlan {
   name: string;
-  price: string;
+  image: string; // ruta en /public
+  price: string; // en COP, formateado
   period: string;
   description: string;
-  features: string[];
-  highlighted?: boolean;
+  benefits: string[];
+  technologies: TechIcon[];
+  whatsappMessage: string;
 }
 
+// TODO: reemplaza con tu número real (código país + número, sin +)
+const WHATSAPP_NUMBER = '573001234567';
+
+// TODO: ajusta montos reales en COP
 const PLANS: PricingPlan[] = [
   {
     name: 'Landing Page',
-    price: '$400',
-    period: 'proyecto',
+    image: './public/assets/landingpage.png',
+    price: '$800.000',
+    period: 'COP',
     description: 'Página de una sola vista, optimizada para conversión y velocidad.',
-    features: [
+    benefits: [
       'Diseño a medida (no plantillas)',
       'Hasta 5 secciones',
       'Animaciones y microinteracciones',
@@ -25,14 +51,22 @@ const PLANS: PricingPlan[] = [
       'Formulario de contacto integrado',
       '1 ronda de revisiones',
     ],
-    highlighted: true,
+    technologies: [
+      { name: 'React', icon: SiReact },
+      { name: 'TypeScript', icon: SiTypescript },
+      { name: 'Tailwind', icon: SiTailwindcss },
+      { name: 'Framer Motion', icon: SiFramer },
+      { name: 'Vite', icon: SiVite },
+    ],
+    whatsappMessage: 'Hola, quiero cotizar el plan de Landing Page 🚀',
   },
   {
     name: 'Web App Full-Stack',
-    price: '$1,200',
-    period: 'proyecto',
+    image: './public/assets/fullstacksystem.png',
+    price: '$4.800.000',
+    period: 'COP',
     description: 'Aplicación web completa con backend, base de datos y autenticación.',
-    features: [
+    benefits: [
       'Frontend + backend a medida',
       'Base de datos y API propia',
       'Autenticación de usuarios',
@@ -41,14 +75,23 @@ const PLANS: PricingPlan[] = [
       '3 rondas de revisiones',
       '30 días de soporte post-entrega',
     ],
-    highlighted: true,
+    technologies: [
+      { name: 'React', icon: SiReact },
+      { name: 'TypeScript', icon: SiTypescript },
+      { name: 'Node.js', icon: SiNodedotjs },
+      { name: 'Express', icon: SiExpress },
+      { name: 'PostgreSQL', icon: SiPostgresql },
+      { name: 'Vercel', icon: SiVercel },
+    ],
+    whatsappMessage: 'Hola, quiero cotizar el plan de Web App Full-Stack 💻',
   },
   {
     name: 'E-commerce',
-    price: '$1,600',
-    period: 'proyecto',
+    image: './public/assets/ecommerce.png',
+    price: '$3.400.000',
+    period: 'COP',
     description: 'Tienda online lista para vender, con pagos y gestión de inventario.',
-    features: [
+    benefits: [
       'Catálogo de productos ilimitado',
       'Pasarela de pagos integrada',
       'Carrito y checkout optimizado',
@@ -56,23 +99,41 @@ const PLANS: PricingPlan[] = [
       'Panel de administración',
       '30 días de soporte post-entrega',
     ],
-    highlighted: true,
+    technologies: [
+      { name: 'React', icon: SiReact },
+      { name: 'Node.js', icon: SiNodedotjs },
+      { name: 'MongoDB', icon: SiMongodb },
+      { name: 'Stripe', icon: SiStripe },
+      { name: 'Tailwind', icon: SiTailwindcss },
+    ],
+    whatsappMessage: 'Hola, quiero cotizar el plan de E-commerce 🛒',
   },
   {
     name: 'Consultoría Freelance',
-    price: '$35',
+    image: './public/assets/consultoria.png',
+    price: '$140.000',
     period: 'hora',
     description: 'Acompañamiento puntual: revisiones de código, arquitectura o dudas técnicas.',
-    features: [
+    benefits: [
       'Sesiones vía videollamada',
       'Revisión y auditoría de código',
       'Asesoría en arquitectura',
       'Resolución de bugs específicos',
       'Sin permanencia, pago por sesión',
     ],
-    highlighted: true,
+    technologies: [
+      { name: 'React', icon: SiReact },
+      { name: 'TypeScript', icon: SiTypescript },
+      { name: 'Figma', icon: SiFigma },
+    ],
+    whatsappMessage: 'Hola, quiero agendar una consultoría freelance 🧠',
   },
 ];
+
+const handleWhatsAppClick = (message: string) => {
+  const encoded = encodeURIComponent(message);
+  window.open(`https://wa.me/${+573018926358}?text=${encoded}`, '_blank');
+};
 
 export default function PricingSection() {
   return (
@@ -99,68 +160,85 @@ export default function PricingSection() {
         {PLANS.map((plan, i) => (
           <FadeIn key={plan.name} delay={i * 0.1} className="h-full">
             <div
-              className={`h-full flex flex-col rounded-[30px] p-6 sm:p-8 transition-transform duration-300 hover:-translate-y-1 ${
-                plan.highlighted
-                  ? 'text-white'
-                  : 'bg-[#141414] text-[#D7E2EA] border border-[#D7E2EA]/15'
-              }`}
-              style={
-                plan.highlighted
-                  ? {
-                      background:
-                        'linear-gradient(160deg, #18011F 0%, #4A1470 45%, #7621B0 100%)',
-                    }
-                  : undefined
-              }
+              className="h-full flex flex-col rounded-[30px] overflow-hidden text-white transition-transform duration-300 hover:-translate-y-1"
+              style={{
+                background:
+                  'linear-gradient(160deg, #18011F 0%, #4A1470 45%, #7621B0 100%)',
+              }}
             >
-              <h3 className="font-medium uppercase tracking-wide text-lg sm:text-xl mb-2">
-                {plan.name}
-              </h3>
-
-              <p
-                className={`font-light text-sm leading-relaxed mb-6 ${
-                  plan.highlighted ? 'opacity-80' : 'opacity-60'
-                }`}
-              >
-                {plan.description}
-              </p>
-
-              <div className="flex items-end gap-1 mb-8">
-                <span className="font-black" style={{ fontSize: 'clamp(2rem, 4vw, 2.75rem)' }}>
-                  {plan.price}
-                </span>
-                <span
-                  className={`font-light uppercase tracking-wide text-sm mb-1.5 ${
-                    plan.highlighted ? 'opacity-70' : 'opacity-50'
-                  }`}
-                >
-                  / {plan.period}
-                </span>
+              {/* Imagen */}
+              <div className="relative h-40 overflow-hidden">
+                <img
+                  src={plan.image}
+                  alt={plan.name}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#18011F] via-transparent to-transparent" />
               </div>
 
-              <ul className="flex flex-col gap-3 mb-8 flex-1">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2 text-sm font-light">
-                    <Check
-                      size={16}
-                      className={`flex-shrink-0 mt-0.5 ${
-                        plan.highlighted ? 'opacity-90' : 'opacity-70'
-                      }`}
-                    />
-                    <span className={plan.highlighted ? 'opacity-90' : 'opacity-80'}>
-                      {feature}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+              <div className="flex flex-col flex-1 p-6 sm:p-7">
+                <h3 className="font-medium uppercase tracking-wide text-lg sm:text-xl mb-2">
+                  {plan.name}
+                </h3>
 
-              {plan.highlighted ? (
-                <ContactButton className="w-full" />
-              ) : (
-                <button className="w-full rounded-full border-2 border-[#D7E2EA] text-[#D7E2EA] font-medium uppercase tracking-widest px-6 py-3 text-sm transition-colors duration-200 hover:bg-[#D7E2EA]/10">
-                  elegir este plan
+                <p className="font-light text-sm leading-relaxed opacity-80 mb-5">
+                  {plan.description}
+                </p>
+
+                <div className="flex items-end gap-1 mb-5">
+                  <span className="font-black" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.25rem)' }}>
+                    {plan.price}
+                  </span>
+                  <span className="font-light uppercase tracking-wide text-xs mb-1.5 opacity-70">
+                    / {plan.period}
+                  </span>
+                </div>
+
+                <p className="font-light uppercase tracking-widest text-xs opacity-60 mb-3">
+                  Beneficios
+                </p>
+                <ul className="flex flex-col gap-2 mb-6">
+                  {plan.benefits.map((benefit) => (
+                    <li key={benefit} className="flex items-start gap-2 text-sm font-light">
+                      <Check size={16} className="flex-shrink-0 mt-0.5 opacity-90" />
+                      <span className="opacity-90">{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <p className="font-light uppercase tracking-widest text-xs opacity-60 mb-3">
+                  Tecnologías
+                </p>
+                <div className="flex flex-wrap gap-3 mb-7">
+                  {plan.technologies.map((tech) => {
+                    const Icon = tech.icon;
+                    return (
+                      <div
+                        key={tech.name}
+                        className="flex flex-col items-center gap-1.5 w-16"
+                        title={tech.name}
+                      >
+                        <div className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10">
+                          <Icon size={18} />
+                        </div>
+                        <span className="text-[10px] font-light opacity-70 text-center leading-tight">
+                          {tech.name}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <button
+                  onClick={() => handleWhatsAppClick(plan.whatsappMessage)}
+                  className="mt-auto w-full rounded-full font-medium uppercase tracking-widest px-6 py-3 text-sm text-white transition-opacity duration-200 hover:opacity-90"
+                  style={{
+                    background: 'linear-gradient(90deg, #EC4899 0%, #A855F7 50%, #22D3EE 100%)',
+                  }}
+                >
+                  Elegir este plan 🚀
                 </button>
-              )}
+              </div>
             </div>
           </FadeIn>
         ))}

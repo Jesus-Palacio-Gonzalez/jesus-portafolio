@@ -50,7 +50,7 @@ export default function FAQSection() {
 
   return (
     <section
-      id="faq"
+      id="faqs"
       className="bg-[#0C0C0C] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] px-5 sm:px-8 md:px-10 py-20 sm:py-24 md:py-32"
     >
       <FadeIn>
