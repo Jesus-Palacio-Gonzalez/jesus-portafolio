@@ -2,7 +2,7 @@ import FadeIn from '../components/FadeIn';
 import Magnet from '../components/Magnet';
 import ContactButton from '../components/ContactButton';
 
-const NAV_LINKS = ['About', 'Services', 'Projects', 'Contact'];
+const NAV_LINKS = ['About', 'Services', 'Projects', 'FAQS'];
 
 const PORTRAIT_URL =
   '/assets/jesusface.png';

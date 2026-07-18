@@ -80,7 +80,7 @@ export default function Footer() {
     style={{ borderTop: '1px solid rgba(215, 226, 234, 0.15)' }}
   >
     <span className="text-[#D7E2EA] text-xs sm:text-sm opacity-50 uppercase tracking-wider">
-      © {year} Jack. All rights reserved.
+      © {year} PalacioTECH. All rights reserved.
     </span>
 
     <Link
